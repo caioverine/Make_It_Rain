@@ -30,7 +30,7 @@ class Home extends StatelessWidget {
               )
             ),
             InkWell(
-              child: Text("$money",
+              child: Text("\$$money",
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w800,
