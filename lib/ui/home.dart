@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
-  
+class Home extends StatefulWidget {
+
+  @override
+  State<StatefulWidget> createState() {
+    return new MakeItRainState();
+  }
+}
+
+class MakeItRainState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     
@@ -22,32 +29,38 @@ class Home extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("Get Rich!",
-              style: TextStyle(
-                fontSize: 15.5,
-                fontWeight: FontWeight.w400,
-                color: Colors.grey.shade800
+            Center(
+              child: Text("Get Rich!",
+                style: TextStyle(
+                  fontSize: 15.5,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.grey.shade800
+                )
               )
             ),
-            InkWell(
-              child: Text("\$$money",
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.green,
-                )
-              ),
-              onTap: () => money = _giveMovey(money)
+            Center(
+              child: InkWell(
+                child: Text("\$$money",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.green,
+                  )
+                ),
+                onTap: () => _giveMovey(money)
+              )
             ),
-            RaisedButton(
-              color: Colors.green,
-              child: Text("Let it rain!",
-                style: TextStyle(
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.w400
-                )
-              ),
-              onPressed: () => money = _giveMovey(money)
+            Center(
+              child: RaisedButton(
+                color: Colors.green,
+                child: Text("Let it rain!",
+                  style: TextStyle(
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.w400
+                  )
+                ),
+                onPressed: () => _giveMovey(money)
+              )
             )
           ]
         )
@@ -56,6 +69,12 @@ class Home extends StatelessWidget {
   }
 
   _giveMovey(money) {
-    return money + 50;
+
+    setState(() {
+      money = money + 50;
+
+
+
+    });
   }
 }
