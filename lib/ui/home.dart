@@ -9,10 +9,22 @@ class Home extends StatefulWidget {
 }
 
 class MakeItRainState extends State<Home> {
+  int _money = 0;
+
+  void _giveMovey() {
+
+    setState(() {
+      _money = _money + 50;
+
+
+
+    });
+    print(_money);
+  }
+
   @override
   Widget build(BuildContext context) {
     
-    int money = 0;
     
     return Scaffold(
 
@@ -40,14 +52,14 @@ class MakeItRainState extends State<Home> {
             ),
             Center(
               child: InkWell(
-                child: Text("\$$money",
+                child: Text("\$$_money",
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w800,
                     color: Colors.green,
                   )
                 ),
-                onTap: () => _giveMovey(money)
+                onTap: () => _giveMovey()
               )
             ),
             Center(
@@ -59,22 +71,12 @@ class MakeItRainState extends State<Home> {
                     fontWeight: FontWeight.w400
                   )
                 ),
-                onPressed: () => _giveMovey(money)
+                onPressed: () => _giveMovey()
               )
             )
           ]
         )
       )
     );
-  }
-
-  _giveMovey(money) {
-
-    setState(() {
-      money = money + 50;
-
-
-
-    });
   }
 }
